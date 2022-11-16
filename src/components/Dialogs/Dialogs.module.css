@@ -1,0 +1,41 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+}
+
+.dialog {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.713);
+    margin-bottom: 5px;
+}
+
+.active {
+    color: rgb(255, 140, 0);
+    text-decoration: none;
+}
+
+.messages {
+    padding:10px
+}
+
+.dialogItemInfo{
+    display: flex;
+    align-items: center;
+}
+
+.dialogItem {
+    margin-bottom: 3px;
+}
+.dialogItemImg {
+    max-width: 20px;
+    border-radius: 100px;
+    margin-right: 5px;
+}
+

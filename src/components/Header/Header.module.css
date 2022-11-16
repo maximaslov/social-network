@@ -1,0 +1,16 @@
+.header {
+    grid-area: header;
+    background-color: rgba(0, 0, 0, 0.713);
+    display: flex;
+    align-items: center;
+  }
+  
+  .headerLogo {
+    max-width: 60px;
+    margin: -2px 0 0 20px;
+  }
+
+  .headerTitle {
+    color: white;
+    padding-left: 2px;
+  }

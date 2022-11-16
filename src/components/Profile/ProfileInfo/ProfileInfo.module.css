@@ -1,0 +1,12 @@
+.content img {
+  max-width: 1000px;
+}
+
+.descriptionBlock {
+  padding: 10px;
+}
+
+.banner {
+  max-width: 1500px;
+  width: 100%;
+}

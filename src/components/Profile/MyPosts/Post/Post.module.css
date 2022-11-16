@@ -1,0 +1,31 @@
+.item {
+    margin: 10px 0 0 0;
+    background-color: white;
+    padding: 10px;
+    max-width: 1000px;
+}
+
+.item img {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+}
+
+.likeBtn {
+    cursor: pointer;
+}
+
+.likeBtn:hover {
+    color: rgb(0, 106, 255);
+}
+
+.postContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.postLikes {
+    font-weight: 500;
+    font-size: 18px;
+}
