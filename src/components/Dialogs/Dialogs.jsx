@@ -2,27 +2,7 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import {Formik, Form, Field } from "formik";
-
-const AddMessageForm = (props) => {
-    return (
-        <Formik
-            initialValues={{newMessageBody: ''}}
-            onSubmit={(values) => {
-                props.addNewMessage(values)
-                values.newMessageBody = ''; //отсебятина
-            }}>
-            {() => (
-                <Form>
-                    <div>
-                        <Field type={'textarea'} name={'newMessageBody'} placeholder='Enter your message'/>
-                    </div>
-                    <button className={styles.button} type={'submit'}>Send message</button>
-                </Form>
-            )}
-        </Formik>
-    )
-}
+import AddMessageForm from './AddMessageForm';
 
 export default function Dialogs(props) {
     let state = props.dialogsPage;

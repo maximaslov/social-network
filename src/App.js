@@ -23,16 +23,7 @@ function App(props) {
           <Routes>
             <Route path="/profile" element={<ProfileContainer isMain={true}/>} />
             <Route path="/profile/:userId" element={<ProfileContainer />} />
-            <Route 
-              path="/dialogs/*" 
-              element={
-                <DialogsContainer
-                  // state={props.state.dialogsPage} старое
-                  // dispatch={props.dispatch} старое
-                  // store={props.store}
-                />
-              }
-              />
+            <Route path="/dialogs/*" element={<DialogsContainer />}/>
             <Route path="/news/*" element={<News />}/>
             <Route path="/music/*" element={<Music />}/>
             <Route path="/users/*" element={<UsersContainer />} />

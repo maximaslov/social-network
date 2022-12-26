@@ -10,7 +10,7 @@ export default function ProfileInfo(props) {
     }
         return (
         <div className={styles.descriptionBlock}>
-            <img className={styles.banner} src='https://upload.wikimedia.org/wikivoyage/en/thumb/4/45/NVancouverBanner2.jpg/800px-NVancouverBanner2.jpg' alt=""/>
+            <img className={styles.banner} src='https://upload.wikimedia.org/wikivoyage/en/thumb/4/45/NVancouverBanner2.jpg/800px-NVancouverBanner2.jpg' alt="lake with sheaps"/>
             <div>
                 <p>{props.profile.fullName}</p>
                 <p>{props.profile.aboutMe}</p>
