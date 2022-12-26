@@ -2,6 +2,13 @@
     grid-area: header;
     background-color: rgba(0, 0, 0, 0.713);
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+  }
+
+  .logoBlock {
+    display: flex;
     align-items: center;
   }
   
@@ -13,4 +20,8 @@
   .headerTitle {
     color: white;
     padding-left: 2px;
+  }
+
+  .loginBlock a {
+    color: white;
   }

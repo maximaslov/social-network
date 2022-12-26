@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEST';
 
 let initialState = {
     messages: [
@@ -9,7 +8,6 @@ let initialState = {
         {id: 4, message: 'What is your age?'},
         {id: 5, message: 'Hi, I am fine!'},
         {id: 6, message: 'Cool!'},],
-    newMessageText: '',
     dialogs: [
         {id: 1, name: 'Maxim', photo: 'https://wide-w.com/wp-content/uploads/2021/09/37.jpg'},
         {id: 2, name: 'Andrew', photo: 'https://i.pinimg.com/550x/a4/1d/da/a41ddae55fef329b4f74295ba758a424.jpg'},
@@ -21,26 +19,23 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
     switch(action.type) {
-        case UPDATE_MESSAGE_TEXT: 
-            state.newMessageText = action.text;
-            return state;
-        case SEND_MESSAGE:
-            const newMessage = {
-                id: 7,
-                message: state.newMessageText,
-            }
-            state.messages.push(newMessage);
-            state.newMessageText = '';
-            return state;
+  
+        case SEND_MESSAGE: 
+        const newMessage = {
+            id: 7,
+            message: action.newMessageBody,
+        };
+        return {
+            ...state,
+            messages: [...state.messages, newMessage],
+        };
+        
         default:
             return state;
     }
 }
 
-export const updateMessageTextActionCreater = (text) =>
-({type: UPDATE_MESSAGE_TEXT, text});
-
-export const sendMessageActionCreater = () => ({type: SEND_MESSAGE});
+export const sendMessageActionCreater = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
 
 export default dialogsReducer;
 

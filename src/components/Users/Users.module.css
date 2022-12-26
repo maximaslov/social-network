@@ -1,0 +1,48 @@
+button {
+  border: none;
+  padding: 3px;
+}
+
+.usersBlock {
+  padding: 10px;
+}
+
+.user {
+  max-width: 1000px;
+  background-color: white;
+  padding: 10px;
+}
+
+.user:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.userPhoto {
+  max-width: 60px;
+  max-height: 60px;
+  width: 100%;
+  height: 60px;
+  border: solid 1px black;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.userPhoto img {
+  max-width: 60px;
+}
+
+.unfollowBtn {
+  background-color: rgb(191, 127, 127);
+  color: white;
+}
+
+.followBtn {
+  background-color: rgb(83, 146, 83);
+  color: white;
+}
+
+.selectedPage {
+  font-weight: 900;
+  font-size: 130%;
+}
+

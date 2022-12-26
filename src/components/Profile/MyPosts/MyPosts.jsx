@@ -1,12 +1,11 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { updateNewPostTextActionCreater, addPostActionCreater } from '../../../redux/profile-reduser';
+import { updateNewPostTextActionCreater, addPostActionCreater } from '../../../redux/profile-reducer';
 
 
 export default function MyPosts(props) {
   let state = props.profilePage;
-
 
   let postsItems = state.posts
     .map((e,i) => <Post key={i+1} likesCount={e.likesCount} message={e.message}/>);
@@ -34,7 +33,7 @@ export default function MyPosts(props) {
           />
         </div>
         <div>
-          <button onClick={onAddPost}>Add post</button>
+          <button className={styles.button} onClick={onAddPost}>Add post</button>
         </div>
       </div>
       <div>

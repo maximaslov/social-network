@@ -14,6 +14,9 @@ export default function Navbar(props) {
             <NavLink to="/dialogs" className = { navData => navData.isActive ? styles.active : styles.item }>Messages</NavLink>
         </div>
         <div className={styles.item}>
+            <NavLink to="/users" className = { navData => navData.isActive ? styles.active : styles.item }>Users</NavLink>
+        </div>
+        <div className={styles.item}>
             <NavLink to="/news" className = { navData => navData.isActive ? styles.active : styles.item }>News</NavLink>
         </div>
         <div className={styles.item}>
@@ -24,7 +27,7 @@ export default function Navbar(props) {
         </div>
         <div className={styles.item}>
             <NavLink to="/friends" className = { navData => navData.isActive ? styles.active : styles.item }>
-                <FriendsNav friends={props.state.friends} />
+                {/* <FriendsNav friends={props.state.friends} /> */}
             </NavLink>
         </div>
     </nav>
