@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css'
+import { Formik, Form, Field } from 'formik';
 
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
-        status: this.props.status,
     }
 
     activateEditMode = () => {
@@ -13,16 +13,16 @@ class ProfileStatus extends React.Component {
         })
     }
 
-    deactivateEditMode = () => {
+    updateStatus = (text) => {
         this.setState({
             editMode: false,
         })
-        this.props.updateStatus(this.state.status);
+        this.props.updateStatus(text);
     }
     
-    onStatusChange = (e) => {
+    onStatusChange = (text) => {
         this.setState({
-            status: e.currentTarget.value,
+            status: text,
         });
     }
 
@@ -36,7 +36,7 @@ class ProfileStatus extends React.Component {
 
     render(){
         return (
-            <div>{
+            <div className={styles.statusContainer}>{
                 !this.state.editMode 
                 ? 
                 <div>
@@ -44,19 +44,41 @@ class ProfileStatus extends React.Component {
                 </div>
                 :
                 <div>
-                    <input 
-                        autoFocus={true} 
-                        onBlur={this.deactivateEditMode} 
-                        type="text" 
-                        value={this.state.status}
-                        onChange={this.onStatusChange}
-                    />
+                    <StatusForm 
+                        updateStatus={this.updateStatus}
+                        currentStatus={this.props.status}/>
                 </div> 
                 }
             </div>
         )
     }
-    
+}
+
+const StatusForm = (props) => {
+    const updateStatus = (text) => {
+        props.updateStatus(text);
+    }
+
+    return (
+        <Formik
+            initialValues={{newStatusText: props.currentStatus}}
+            onSubmit={(values) => {
+                updateStatus(values.newStatusText);
+            }}>
+            {() => (
+                <Form>
+                    <div>
+                        <Field 
+                            autoFocus={true}  
+                            onBlur={e => {
+                                updateStatus(e.target.value)
+                            }}
+                        type={'textarea'} name={'newStatusText'} placeholder='Enter your status'/>
+                    </div>
+                </Form>
+            )}
+        </Formik>
+    )
 }
 
 export default ProfileStatus;
