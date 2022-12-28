@@ -5,7 +5,6 @@ import { Formik, Form, Field } from 'formik';
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
-        // status: this.props.status,
     }
 
     activateEditMode = () => {
