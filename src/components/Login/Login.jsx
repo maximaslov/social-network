@@ -1,49 +1,74 @@
 import React from "react";
-import {Formik, Form, Field, ErrorMessage} from "formik";
+import {Formik, useFormik} from "formik";
 import loginFormSchema from "../../utils/validators/LoginFormSchema";
+import styles from "./Login.module.css"
 
-const Login = () => (
+const Login = () => {
+    const formik = useFormik({
+        initialValues: {email: "", password: "", rememberMe: false, showPassword: false},
+        onSubmit: () => {
+            console.log(formik.values)
+            formik.resetForm();
+        },
+        validationSchema: loginFormSchema,
+    })
+
+    const isEmailError = formik.errors.email || formik.touched.email;
+    const isPasswordError = formik.touched.password || formik.errors.password;
+
+    return (
     <div>
         <h1>Login</h1>
-        <Formik
-            initialValues={{email: "", password: "", rememberMe: false}}
-            validate={values => {
-                const errors = {};
-                if (!values.email) {
-                    errors.email = 'Required';
-                } else if (
-                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                ) {
-                    errors.email = 'Invalid email address';
-                }
-                return errors;
-            }}
-            onSubmit={(values) => {
-                console.log(values)
-            }}
-            validationSchema={loginFormSchema}>
-            {() => (
-                <Form>
-                    <div>
-                        <Field type={'text'} name={'email'} placeholder={'e-mail'}/>
-                    </div>
-                    <ErrorMessage name="email" component="div"/>
+        <Formik>
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <input 
+                        value={formik.values.email}
+                        type='email'
+                        name='email'
+                        placeholder='e-mail'
+                        onChange={formik.handleChange}
+                        />
+                </div>
+                {isEmailError ? <p className="error">{formik.errors.email}</p> : ''}
 
-                    <div>
-                        <Field type={'password'} name={'password'} placeholder={'password'}/>
-                    </div>
-                    <ErrorMessage name="password" component="div"/>
+                <div>
+                    <input 
+                        value={formik.values.password}
+                        type={formik.values.showPassword ? 'text' : 'password'}
+                        name='password'
+                        placeholder='password'
+                        onChange={formik.handleChange}
+                        />
+                </div>
 
-                    <div>
-                        <Field type={'checkbox'} name={'rememberMe'}/>
-                        <label htmlFor={'rememberMe'}> remember me </label>
-                    </div>
+                {isPasswordError ? <p className="error">{formik.errors.password}</p> : ''}
 
-                    <button type={'submit'}>Log in</button>
-                </Form>
-            )}
+                <div>
+                    <input 
+                        value={formik.values.rememberMe}
+                        onChange={formik.handleChange} 
+                        type='checkbox'
+                        name='rememberMe'/>
+                    <label htmlFor={'rememberMe'}> remember me </label>
+                </div>
+
+                <div>
+                    <input 
+                        value={formik.values.showPassword}
+                        onChange={formik.handleChange} 
+                        type='checkbox'
+                        name='showPassword'/>
+                    <label htmlFor={'showPassword'}>show password</label>
+                </div>
+
+                <button 
+                    disabled={!formik.values.email || !formik.values.password || !formik.isValid ? true : false}
+                    className={styles.button} 
+                    type={'submit'}>Log in</button>
+            </form>
         </Formik>
     </div>
-);
+)}
 
 export default Login

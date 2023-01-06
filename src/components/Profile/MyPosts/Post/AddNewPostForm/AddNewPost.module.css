@@ -17,3 +17,7 @@
     height: 4vw;
     min-height: 30px;
 }
+
+.textareaError::placeholder {
+    color: red;
+}

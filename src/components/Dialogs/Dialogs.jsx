@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import AddMessageForm from './AddMessageForm';
+import SendMessageForm from './SendMessageForm';
 
 export default function Dialogs(props) {
     let state = props.dialogsPage;
@@ -24,7 +24,7 @@ export default function Dialogs(props) {
             </div>
             <div className={styles.messages}>
                 {messagesElements}
-                <AddMessageForm 
+                <SendMessageForm 
                     addNewMessage={addNewMessage}
                 />
             </div>

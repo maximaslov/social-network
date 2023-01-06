@@ -1,0 +1,6 @@
+.button {
+    background-color: rgb(255, 140, 0);
+}
+.button:disabled{
+    background-color: #ccc;
+}

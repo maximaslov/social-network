@@ -49,3 +49,7 @@
     border: solid 1px black;
 }
 
+.textareaError::placeholder {
+    color: red;
+}
+

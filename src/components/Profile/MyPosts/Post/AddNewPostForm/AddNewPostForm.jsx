@@ -6,28 +6,30 @@ import addNewPostFormSchema from '../../../../../utils/validators/addNewPostForm
 const AddNewPostForm = (props) => {
     const formik = useFormik ({
         initialValues: {newPostBody: ''},
-        onSubmit: values => {
+        onSubmit: () => {
+            formik.resetForm();
             props.addNewPost(formik.values.newPostBody);
-            values.newPostBody = ''; //отсебятина
         },
         validationSchema: addNewPostFormSchema,
     })
+
+    const isError = formik.errors.newPostBody || formik.touched.newPostBody;
 
     return (
         <Formik>
             <form onSubmit={formik.handleSubmit}>
                 <div>
                     <textarea
-                    className={styles.textarea}
+                    className={isError ? styles.textareaError : styles.textarea}
                     value={formik.values.newPostBody}
                     onChange={formik.handleChange}
                     type='textarea'
                     name='newPostBody'
                     placeholder='Enter your text'/>
                 </div>
-                {(formik.errors.newPostBody && formik.touched.newPostBody) ? <p className="error">{formik.errors.newPostBody}</p> : ''}
-                <button 
-                disabled={!formik.values.newPostBody ? true : false} 
+                {isError ? <p className="error">{formik.errors.newPostBody}</p> : ''}
+                <button
+                disabled={!formik.values.newPostBody || isError ? true : false} 
                 className={styles.button} type={'submit'}>Add post</button>
             </form>
         </Formik>

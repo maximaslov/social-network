@@ -6,7 +6,7 @@ export default function Header(props) {
     return (
         <header className={styles.header}>
             <div className={styles.logoBlock}>
-                <img className={styles.headerLogo} src="https://icon-library.com/images/icon-logo-png/icon-logo-png-11.jpg"></img>
+                <img className={styles.headerLogo} src="https://icon-library.com/images/icon-logo-png/icon-logo-png-11.jpg" alt="logo"></img>
                 <h2 className={styles.headerTitle}>Social Network</h2>
             </div>
 
