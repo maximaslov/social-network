@@ -1,6 +1,6 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from "formik";
-import loginFormSchema from "./FormValidation/LoginFormSchema";
+import loginFormSchema from "../../utils/validators/LoginFormSchema";
 
 const Login = () => (
     <div>

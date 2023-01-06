@@ -19,16 +19,6 @@ export default function MyPosts(props) {
       <h3>My posts</h3>
       <div>
         <AddNewPostForm addNewPost={addNewPost}/>
-        {/* <div>
-          <textarea 
-            ref={newPostElement}
-            value={state.newPostText}
-            onChange={onPostChage}
-          />
-        </div>
-        <div>
-          <button className={styles.button} onClick={onAddPost}>Add post</button>
-        </div> */}
       </div>
       <div>
         {postsItems.reverse()}

@@ -11,8 +11,7 @@ export default function Profile(props) {
                 status={props.status}
                 updateStatus={props.updateStatus}
                 />
-            <MyPostsContainer 
-            />      
+            <MyPostsContainer />      
         </div>
     )
 }
