@@ -13,7 +13,8 @@ export default function Dialogs(props) {
         .map(e => <Message key={e.id} id={e.id} message={e.message}/>);
 
     function addNewMessage(values) {
-        props.sendMessage(values.newMessageBody)
+        props.sendMessage(values)
+        // props.sendMessage(values.newMessageBody)
     }
 
     return (
