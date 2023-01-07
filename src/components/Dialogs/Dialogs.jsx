@@ -3,6 +3,7 @@ import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import SendMessageForm from './SendMessageForm';
+import { Navigate } from 'react-router-dom';
 
 export default function Dialogs(props) {
     let state = props.dialogsPage;
@@ -14,7 +15,10 @@ export default function Dialogs(props) {
 
     function addNewMessage(values) {
         props.sendMessage(values)
-        // props.sendMessage(values.newMessageBody)
+    }
+
+    if(!props.isAuth){
+        return <Navigate to="/login" replace={true} />
     }
 
     return (

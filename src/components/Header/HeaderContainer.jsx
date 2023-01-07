@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import { toggleIsFetching } from '../../redux/users-reduser';
-import { getAuthUserData } from '../../redux/auth-reduser';
+import { getAuthUserData, logout } from '../../redux/auth-reduser';
 import {authAPI} from '../../api/api'
 
 class HeaderContainer extends React.Component {
@@ -28,5 +28,6 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     toggleIsFetching,
-    getAuthUserData
+    getAuthUserData,
+    logout
 })(HeaderContainer);

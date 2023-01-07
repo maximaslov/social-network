@@ -9,9 +9,16 @@ export default function Header(props) {
                 <img className={styles.headerLogo} src="https://icon-library.com/images/icon-logo-png/icon-logo-png-11.jpg" alt="logo"></img>
                 <h2 className={styles.headerTitle}>Social Network</h2>
             </div>
-
-            <div className={styles.loginBlock}>
-                { props.isAuth ? <p>{props.login}</p> : <NavLink to="/login">Login</NavLink> }
+            <div className={styles.authBlock}>
+                { props.isAuth    
+                    ?
+                    <div className={styles.loginBlock}>
+                        <p>{props.login}</p> 
+                        <button onClick={props.logout}>Log out</button>
+                    </div>
+                    : 
+                    <NavLink to="/login">Login</NavLink> }
+                
             </div>
         </header>
     )

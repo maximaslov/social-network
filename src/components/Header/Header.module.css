@@ -22,6 +22,17 @@
     padding-left: 2px;
   }
 
-  .loginBlock a {
+  .authBlock {
+    max-width: 150px;
+    width: 100%;
+  }
+
+  .authBlock a {
     color: white;
+  }
+
+  .loginBlock {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%
   }

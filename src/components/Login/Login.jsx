@@ -1,13 +1,17 @@
 import React from "react";
-import {Formik, useFormik} from "formik";
+import { Formik, useFormik } from "formik";
 import loginFormSchema from "../../utils/validators/LoginFormSchema";
 import styles from "./Login.module.css"
+import { login } from '../../redux/auth-reduser';
+import { connect } from 'react-redux';
+import { Navigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
     const formik = useFormik({
         initialValues: {email: "", password: "", rememberMe: false, showPassword: false},
         onSubmit: () => {
-            console.log(formik.values)
+            const {email, password, rememberMe} = formik.values;
+            props.login(email, password, rememberMe)
             formik.resetForm();
         },
         validationSchema: loginFormSchema,
@@ -15,6 +19,10 @@ const Login = () => {
 
     const isEmailError = formik.errors.email || formik.touched.email;
     const isPasswordError = formik.touched.password || formik.errors.password;
+
+    if(props.isAuth) {
+        return <Navigate to="/profile" replace={true} />
+    }
 
     return (
     <div>
@@ -71,4 +79,10 @@ const Login = () => {
     </div>
 )}
 
-export default Login
+const mapStateToProps = (state) => {
+    return {
+        isAuth: state.auth.isAuth,
+    }
+}
+
+export default connect(mapStateToProps, {login})(Login)

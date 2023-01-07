@@ -3,6 +3,7 @@ import Profile from './Profile'
 import { connect } from 'react-redux';
 import { getUserProfile , getStatus, updateStatus} from '../../redux/profile-reducer';
 import { useParams} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 
 function withRouter(Children){
@@ -37,7 +38,9 @@ class ProfileContainer extends React.Component {
     render() {
         return (
             <div>
-                <Profile {...this.props} 
+                <Profile {...this.props}
+                    userId={this.props.match.params.userId}
+                    isAuth={this.props.isAuth}
                     profile={this.props.profile} 
                     status={this.props.status} 
                     updateStatus={this.props.updateStatus}
@@ -50,6 +53,7 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
+    isAuth: state.auth.isAuth,
 })
 
 export default connect(mapStateToProps, {getUserProfile , getStatus, updateStatus})(withRouter(ProfileContainer));
