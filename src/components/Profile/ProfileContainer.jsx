@@ -54,6 +54,7 @@ let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
     isAuth: state.auth.isAuth,
+    authorizedUserId: state.auth.userId,
 })
 
 export default connect(mapStateToProps, {getUserProfile , getStatus, updateStatus})(withRouter(ProfileContainer));

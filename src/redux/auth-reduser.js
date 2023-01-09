@@ -1,4 +1,4 @@
-import {authAPI} from '../api/api'
+import {authAPI} from '../api/api';
 const SET_USER_DATA = 'SET_USER_DATA';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
@@ -38,12 +38,15 @@ export const getAuthUserData = () => (dispatch) => {
     })
 }
 
-export const login = (email, password, rememberMe) => (dispatch) => {
+export const login = (email, password, rememberMe, setStatus, setSubmitting) => (dispatch) => {
     authAPI.login(email, password, rememberMe)
     .then(res => {
         if (res.data.resultCode === 0){
             dispatch(getAuthUserData());
-        }
+        }  else { 
+            setStatus(res.data.messages) 
+        };
+        setSubmitting(false);
     })
 }
 

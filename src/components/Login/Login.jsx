@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, useFormik } from "formik";
 import loginFormSchema from "../../utils/validators/LoginFormSchema";
-import styles from "./Login.module.css"
+import styles from "./Login.module.css";
 import { login } from '../../redux/auth-reduser';
 import { connect } from 'react-redux';
 import { Navigate } from "react-router-dom";
@@ -10,12 +10,14 @@ const Login = (props) => {
     const formik = useFormik({
         initialValues: {email: "", password: "", rememberMe: false, showPassword: false},
         onSubmit: () => {
+            console.log(formik)
             const {email, password, rememberMe} = formik.values;
-            props.login(email, password, rememberMe)
+            props.login(email, password, rememberMe, formik.setStatus, formik.setSubmitting);
+            formik.setSubmitting(true);
             formik.resetForm();
         },
         validationSchema: loginFormSchema,
-    })
+    });
 
     const isEmailError = formik.errors.email || formik.touched.email;
     const isPasswordError = formik.touched.password || formik.errors.password;
@@ -36,9 +38,8 @@ const Login = (props) => {
                         name='email'
                         placeholder='e-mail'
                         onChange={formik.handleChange}
-                        />
+                    />
                 </div>
-                {isEmailError ? <p className="error">{formik.errors.email}</p> : ''}
 
                 <div>
                     <input 
@@ -47,11 +48,11 @@ const Login = (props) => {
                         name='password'
                         placeholder='password'
                         onChange={formik.handleChange}
-                        />
+                    />
                 </div>
-
-                {isPasswordError ? <p className="error">{formik.errors.password}</p> : ''}
-
+                {isEmailError && <div className="error">{formik.errors.email}</div>}
+                {formik.values.email && isPasswordError && <div className="error">{formik.errors.password}</div>}
+                {!formik.values.email && formik.status && <div>{formik.status}</div>}
                 <div>
                     <input 
                         value={formik.values.rememberMe}
@@ -72,6 +73,8 @@ const Login = (props) => {
 
                 <button 
                     disabled={!formik.values.email || !formik.values.password || !formik.isValid ? true : false}
+                    // disabled={formik.isSubmitting}
+                    // disabled={!formik.values.email || !formik.values.password || !formik.isValid ? true : false}
                     className={styles.button} 
                     type={'submit'}>Log in</button>
             </form>
