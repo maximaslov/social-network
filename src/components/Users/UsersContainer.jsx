@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from 'react-redux';
-import axios from 'axios'; // может удалить?
 import Users from './Users';
 import { follow, 
         unfollow,

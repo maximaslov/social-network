@@ -7,9 +7,9 @@ import { getAuthUserData, logout } from '../../redux/auth-reduser';
 import {authAPI} from '../../api/api'
 
 class HeaderContainer extends React.Component {
-    componentDidMount() {
-        this.props.getAuthUserData();
-    }
+    // componentDidMount() {
+    //     this.props.getAuthUserData();
+    // }
 
     render() {
         return <Header {...this.props}/>
@@ -28,6 +28,5 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     toggleIsFetching,
-    getAuthUserData,
     logout
 })(HeaderContainer);

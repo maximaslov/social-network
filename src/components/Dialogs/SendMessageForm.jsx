@@ -17,7 +17,9 @@ const SendMessageForm = (props) => {
 
     return (
         <Formik>
-            <form onSubmit={formik.handleSubmit}>
+            <form 
+                className={styles.newMessageForm}
+                onSubmit={formik.handleSubmit}>
                 <div>
                     <textarea
                     className={isError ? styles.textareaError : styles.textarea}

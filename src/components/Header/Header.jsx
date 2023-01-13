@@ -18,7 +18,6 @@ export default function Header(props) {
                     </div>
                     : 
                     <NavLink to="/login">Login</NavLink> }
-                
             </div>
         </header>
     )

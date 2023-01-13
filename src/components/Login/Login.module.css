@@ -1,6 +1,41 @@
+.loginContainer {
+    padding: 20px;
+}
+
+.loginContainer h3 {
+    margin: 5px 0;
+}
+
+.emailInput {
+    margin-bottom: 10px;
+    max-width: 150px;
+    height: 20px;
+}
+.passwordInput {
+    margin-bottom: 10px;
+    max-width: 150px;
+    height: 20px;
+}
+
+.checkbox {
+    margin: 3px 3px 3px 0;
+}
+
+.error {
+    margin: 10px 0 10px 0;
+    height: 30px;
+    color: red;
+}
+
 .button {
     background-color: rgb(255, 140, 0);
+    padding: 3px;
+    font-size: 15px;
+    margin-top: 10px;
 }
+
 .button:disabled{
     background-color: #ccc;
+    padding: 3px 5px;
+    font-size: 15px;
 }

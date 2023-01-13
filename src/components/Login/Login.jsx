@@ -27,12 +27,13 @@ const Login = (props) => {
     }
 
     return (
-    <div>
-        <h1>Login</h1>
+    <div className={styles.loginContainer}>
+        <h3 className={styles.loginText}>Login</h3>
         <Formik>
             <form onSubmit={formik.handleSubmit}>
                 <div>
                     <input 
+                        className={styles.emailInput}
                         value={formik.values.email}
                         type='email'
                         name='email'
@@ -43,6 +44,7 @@ const Login = (props) => {
 
                 <div>
                     <input 
+                        className={styles.passwordInput}
                         value={formik.values.password}
                         type={formik.values.showPassword ? 'text' : 'password'}
                         name='password'
@@ -50,20 +52,20 @@ const Login = (props) => {
                         onChange={formik.handleChange}
                     />
                 </div>
-                {isEmailError && <div className="error">{formik.errors.email}</div>}
-                {formik.values.email && isPasswordError && <div className="error">{formik.errors.password}</div>}
-                {!formik.values.email && formik.status && <div>{formik.status}</div>}
+                
                 <div>
                     <input 
+                        className={styles.checkbox}
                         value={formik.values.rememberMe}
                         onChange={formik.handleChange} 
                         type='checkbox'
                         name='rememberMe'/>
-                    <label htmlFor={'rememberMe'}> remember me </label>
+                    <label htmlFor={'rememberMe'}>remember me </label>
                 </div>
 
                 <div>
                     <input 
+                        className={styles.checkbox}
                         value={formik.values.showPassword}
                         onChange={formik.handleChange} 
                         type='checkbox'
@@ -73,10 +75,16 @@ const Login = (props) => {
 
                 <button 
                     disabled={!formik.values.email || !formik.values.password || !formik.isValid ? true : false}
-                    // disabled={formik.isSubmitting}
-                    // disabled={!formik.values.email || !formik.values.password || !formik.isValid ? true : false}
                     className={styles.button} 
-                    type={'submit'}>Log in</button>
+                    type={'submit'}>
+                        Log in
+                </button>
+                
+                <div className={styles.error}>
+                    {isEmailError && <div className={styles.errorMessage}>{formik.errors.email}</div>}
+                    {formik.values.email && isPasswordError && <div className={styles.errorMessage}>{formik.errors.password}</div>}
+                    {!formik.values.email && formik.status && <div className={styles.errorMessage}>{formik.status}</div>}
+                </div>
             </form>
         </Formik>
     </div>

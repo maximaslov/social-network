@@ -1,11 +1,14 @@
 .header {
     grid-area: header;
-    background-color: rgba(0, 0, 0, 0.713);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 20px;
-  }
+    background-color: rgb(65, 64, 64);
+    padding: 20px;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+}
 
   .logoBlock {
     display: flex;
@@ -14,7 +17,7 @@
   
   .headerLogo {
     max-width: 60px;
-    margin: -2px 0 0 20px;
+    margin: -2px 0 0 0;
   }
 
   .headerTitle {
@@ -25,6 +28,8 @@
   .authBlock {
     max-width: 150px;
     width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .authBlock a {
@@ -34,5 +39,10 @@
   .loginBlock {
     display: flex;
     justify-content: space-between;
-    max-width: 100%
+    align-items: center;
+    width: 100%
+  }
+
+  .loginBlock button {
+    height: 20px;
   }
