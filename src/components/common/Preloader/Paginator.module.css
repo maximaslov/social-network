@@ -1,0 +1,31 @@
+.paginator {
+    margin-bottom: 10px;
+}
+
+.page {
+    border: solid 0.2px black;
+    min-width: 25px;
+    margin-right: 3px;
+}
+
+.selectedPage {
+    font-weight: 900;
+    background-color: rgb(255, 140, 0);
+    border: solid 0.2px black;
+    min-width: 25px;
+}
+
+.page:last-child {
+    margin-right: -3px;
+}
+
+.paginatorBtn {
+    border: solid 0.2px black;
+    background-color: rgb(255, 140, 0);
+    padding: 3px 5px;
+    margin-right: 8px;
+}
+
+.paginatorBtn:not(:first-child) {
+    margin-left: 5px;
+}

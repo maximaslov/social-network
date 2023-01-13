@@ -2,7 +2,7 @@ import {authAPI} from '../api/api';
 const SET_USER_DATA = 'SET_USER_DATA';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
-let initialState = {
+export let initialState = {
         userId: null,
         email: null,
         login: null,
