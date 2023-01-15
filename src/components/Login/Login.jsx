@@ -11,10 +11,10 @@ const Login = (props) => {
         initialValues: {email: "", password: "", rememberMe: false, showPassword: false},
         onSubmit: () => {
             console.log(formik)
-            const {email, password, rememberMe} = formik.values;
-            props.login(email, password, rememberMe, formik.setStatus, formik.setSubmitting);
+            const {email, password, rememberMe, captcha} = formik.values;
+            props.login(email, password, rememberMe, captcha, formik.setStatus, formik.setSubmitting);
             formik.setSubmitting(true);
-            formik.resetForm();
+            // formik.resetForm();
         },
         validationSchema: loginFormSchema,
     });
@@ -72,7 +72,12 @@ const Login = (props) => {
                         name='showPassword'/>
                     <label htmlFor={'showPassword'}>show password</label>
                 </div>
-
+                {props.captchaUrl && <img src={props.captchaUrl}/>}
+                {props.captchaUrl && <input 
+                    name='captcha'
+                    onChange={formik.handleChange}
+                    />
+                }
                 <button 
                     disabled={!formik.values.email || !formik.values.password || !formik.isValid ? true : false}
                     className={styles.button} 
@@ -93,6 +98,7 @@ const Login = (props) => {
 const mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.captchaUrl,
     }
 }
 

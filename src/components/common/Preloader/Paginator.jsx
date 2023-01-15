@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Paginator.module.css";
-import cn from "classnames";
 
 const Paginator = (props) => {
     const padgesCount = Math.ceil(props.totalItemsCount / props.pageSize);
@@ -12,7 +11,6 @@ const Paginator = (props) => {
     const [portionNumber, setPortionNumber] = useState(Math.floor(props.currentPage /10) + 1);
     const leftPortionPageNumber = (portionNumber - 1) * props.portionSize + 1;
     const rightPortionPageNumber = portionNumber * props.portionSize;
-
     
     return (
         <div className={styles.paginator}>
