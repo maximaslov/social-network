@@ -3,6 +3,7 @@ const INITIALIZED_SUCCES = 'INITIALIZED_SUCCES';
 
 let initialState = {
         initialized: false,
+        redirect: true,
 }
 
 const appReducer = (state = initialState, action) => {

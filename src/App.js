@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes, useParams, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams, Navigate, Router } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
@@ -36,6 +36,7 @@ class App extends React.Component {
         </div>
       )
     }
+
     return (
       <BrowserRouter>
         <div className="app-wrapper">
@@ -43,6 +44,8 @@ class App extends React.Component {
           <Navbar />
           <div className="app-wrapper-content">
             <Routes>
+              {/* {this.props.redirect && <Route path="/" element={ <Navigate to="/profile"/> } /> } */}
+              {window.location.pathname === "/" && <Route path="/" element={ <Navigate to="/profile"/> } /> }
               <Route path="/profile" element={<ProfileContainer isMain={true}/>} />
               <Route path="/profile/:userId" element={<ProfileContainer />} />
               <Route path="/dialogs/*" element={<DialogsContainer />}/>
@@ -62,6 +65,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
+  redirect: state.app.redirect,
 })
 
 export default compose(

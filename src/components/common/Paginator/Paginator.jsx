@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Paginator.module.css";
 
 const Paginator = (props) => {

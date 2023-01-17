@@ -2,7 +2,7 @@ import React from "react";
 import style from './Users.module.css';
 import Preloader from '../common/Preloader/Preloader';
 import { UserInfo } from "./UserInfo";
-import Paginator from '../common/Preloader/Paginator'
+import Paginator from '../common/Paginator/Paginator';
 import { useState } from "react";
 
 let Users = (props) => {
