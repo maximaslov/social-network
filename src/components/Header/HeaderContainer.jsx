@@ -1,16 +1,10 @@
-import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import { toggleIsFetching } from '../../redux/users-reduser';
-import { getAuthUserData, logout } from '../../redux/auth-reduser';
-import {authAPI} from '../../api/api'
+import { logout } from '../../redux/auth-reduser';
 
 class HeaderContainer extends React.Component {
-    // componentDidMount() {
-    //     this.props.getAuthUserData();
-    // }
-
     render() {
         return <Header {...this.props}/>
     }

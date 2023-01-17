@@ -1,6 +1,6 @@
-import Dialogs from './Dialogs';
-import { connect } from 'react-redux';
-import { sendMessageActionCreater } from '../../redux/dialogs-reducer';
+import Dialogs from "./Dialogs";
+import { connect } from "react-redux";
+import { sendMessageActionCreater } from "../../redux/dialogs-reducer";
 
 
 let mapStateToProps = (state) => {
@@ -9,6 +9,7 @@ let mapStateToProps = (state) => {
         isAuth: state.auth.isAuth
     }
 }
+
 let mapDispatchToProps = (dispatch) => {
     return {
         sendMessage: (newMessageBody) => {

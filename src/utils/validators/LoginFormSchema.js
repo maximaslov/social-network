@@ -9,4 +9,5 @@ const loginFormSchema = Yup.object().shape({
         .min(8, "")
         .required(""),
 });
+
 export default loginFormSchema;

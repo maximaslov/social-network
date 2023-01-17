@@ -1,20 +1,19 @@
 import React from "react";
 import { Formik, useFormik } from "formik";
-import loginFormSchema from "../../utils/validators/LoginFormSchema";
+import loginFormSchema from "../../utils/validators/loginFormSchema";
 import styles from "./Login.module.css";
-import { login } from '../../redux/auth-reduser';
-import { connect } from 'react-redux';
+import { login } from "../../redux/auth-reduser";
+import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-const Login = (props) => {
+const Login = ({login, captchaUrl, isAuth}) => {
     const formik = useFormik({
         initialValues: {email: "", password: "", rememberMe: false, showPassword: false},
         onSubmit: () => {
-            console.log(formik)
             const {email, password, rememberMe, captcha} = formik.values;
-            props.login(email, password, rememberMe, captcha, formik.setStatus, formik.setSubmitting);
+            login(email, password, rememberMe, captcha, formik.setStatus, formik.setSubmitting);
+            console.log(rememberMe)
             formik.setSubmitting(true);
-            // formik.resetForm();
         },
         validationSchema: loginFormSchema,
     });
@@ -22,7 +21,7 @@ const Login = (props) => {
     const isEmailError = formik.errors.email || formik.touched.email;
     const isPasswordError = formik.touched.password || formik.errors.password;
 
-    if(props.isAuth) {
+    if(isAuth) {
         return <Navigate to="/profile" replace={true} />
     }
 
@@ -72,11 +71,14 @@ const Login = (props) => {
                         name='showPassword'/>
                     <label htmlFor={'showPassword'}>show password</label>
                 </div>
-                {props.captchaUrl && <img src={props.captchaUrl}/>}
-                {props.captchaUrl && <input 
-                    name='captcha'
-                    onChange={formik.handleChange}
-                    />
+                {captchaUrl && 
+                    <div className={styles.captcha}>
+                        <img src={captchaUrl} alt="captcha"/>
+                        <input 
+                            name='captcha'
+                            onChange={formik.handleChange}
+                        />
+                    </div>
                 }
                 <button 
                     disabled={!formik.values.email || !formik.values.password || !formik.isValid ? true : false}
@@ -88,7 +90,7 @@ const Login = (props) => {
                 <div className={styles.error}>
                     {isEmailError && <div className={styles.errorMessage}>{formik.errors.email}</div>}
                     {formik.values.email && isPasswordError && <div className={styles.errorMessage}>{formik.errors.password}</div>}
-                    {!formik.values.email && formik.status && <div className={styles.errorMessage}>{formik.status}</div>}
+                    {formik.status && <div className={styles.errorMessage}>{formik.status}</div>}
                 </div>
             </form>
         </Formik>

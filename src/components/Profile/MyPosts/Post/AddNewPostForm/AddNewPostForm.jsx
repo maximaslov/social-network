@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import styles from "./AddNewPost.module.css";
 import { Formik, useFormik } from "formik";
-import addNewPostFormSchema from '../../../../../utils/validators/addNewPostFormSchema';
+import addNewPostFormSchema from "../../../../../utils/validators/addNewPostFormSchema";
 
-const AddNewPostForm = (props) => {
+const AddNewPostForm = ({addNewPost}) => {
     const formik = useFormik ({
         initialValues: {newPostBody: ''},
         onSubmit: () => {
             formik.resetForm();
-            props.addNewPost(formik.values.newPostBody);
+            addNewPost(formik.values.newPostBody);
         },
         validationSchema: addNewPostFormSchema,
     })
@@ -18,7 +18,7 @@ const AddNewPostForm = (props) => {
     return (
         <Formik>
             <form onSubmit={formik.handleSubmit}>
-                <div>
+                <div className={styles.textareaContiner}>
                     <textarea
                     className={isError ? styles.textareaError : styles.textarea}
                     value={formik.values.newPostBody}

@@ -1,12 +1,12 @@
-import React from 'react';
-import styles from './Dialogs.module.css';
-import DialogItem from './DialogItem/DialogItem';
-import Message from './Message/Message';
-import SendMessageForm from './SendMessageForm';
-import { Navigate } from 'react-router-dom';
+import React from "react";
+import styles from "./Dialogs.module.css";
+import DialogItem from "./DialogItem/DialogItem";
+import Message from "./Message/Message";
+import SendMessageForm from "./SendMessageForm";
+import { Navigate } from "react-router-dom";
 
-export default function Dialogs(props) {
-    let state = props.dialogsPage;
+const Dialogs = ({dialogsPage, sendMessage, isAuth}) => {
+    let state = dialogsPage;
     let dialogsElements = state.dialogs
         .map(e => <DialogItem key={e.id} id={e.id} name={e.name} photo={e.photo}/>);
 
@@ -14,10 +14,10 @@ export default function Dialogs(props) {
         .map(e => <Message key={e.id} id={e.id} message={e.message}/>);
 
     function addNewMessage(values) {
-        props.sendMessage(values)
+        sendMessage(values)
     }
 
-    if(!props.isAuth){
+    if(!isAuth){
         return <Navigate to="/login" replace={true} />
     }
 
@@ -35,3 +35,5 @@ export default function Dialogs(props) {
         </div>
     )
 }
+
+export default Dialogs;

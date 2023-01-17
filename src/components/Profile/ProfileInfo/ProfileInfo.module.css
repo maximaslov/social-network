@@ -11,7 +11,28 @@
   width: 100%;
 }
 
-.statusContainer p {
-  margin: 0 auto;
+.statusText {
+  margin-top: 15px;
   height: 21px;
+  width: max-content;
+}
+
+.tooltipText {
+  visibility: hidden;
+  font-size: 15px;
+  color: green;
+  background-color: rgba(255, 255, 255, 0.45);
+  margin-top: -35px;
+}
+
+.statusText:hover {
+  cursor: pointer;
+}
+
+.statusText:hover .tooltipText {
+  visibility: visible;
+}
+
+.statusForm {
+  margin: 15px auto 0 auto;
 }

@@ -1,48 +1,61 @@
 .header {
-    grid-area: header;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(65, 64, 64);
-    padding: 20px;
-    max-width: 1200px;
-    display: flex;
-    align-items: center;
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(65, 64, 64);
+  padding: 20px;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
 }
 
-  .logoBlock {
-    display: flex;
-    align-items: center;
-  }
-  
-  .headerLogo {
-    max-width: 60px;
-    margin: -2px 0 0 0;
-  }
+.logoBlock {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
-  .headerTitle {
-    color: white;
-    padding-left: 2px;
-  }
+.headerLogo {
+  max-width: 60px;
+  margin: -2px 0 0 0;
+}
 
-  .authBlock {
-    max-width: 150px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
+.headerTitle {
+  color: white;
+  padding-left: 2px;
+}
 
-  .authBlock a {
-    color: white;
-  }
+.authBlock {
+  max-width: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 
-  .loginBlock {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%
-  }
+.authBlock a {
+color:   white;
+}
 
-  .loginBlock button {
-    height: 20px;
-  }
+.loginBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%
+}
+
+.loginBlock p {
+  color: white;
+}
+
+.loginBlock button {
+  height: 20px;
+}
+
+.loginBlock button:hover {
+  background-color: rgb(255, 140, 0);
+}
+
+.loginLink:hover {
+  color: rgb(255, 140, 0);
+}

@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './ProfileInfo.module.css'
-import { Formik, Form, Field } from 'formik';
+import React from "react";
+import styles from "./ProfileInfo.module.css";
+import StatusForm from "./StatusForm";
 
 class ProfileStatus extends React.Component {
     state = {
@@ -39,12 +39,17 @@ class ProfileStatus extends React.Component {
             <div className={styles.statusContainer}>{
                 !this.state.editMode 
                 ? 
-                <div>
-                    <p onClick={this.activateEditMode}>{this.props.status || '--'}</p>
+                <div className={styles.statusText}
+                    onClick={!this.props.userId && this.activateEditMode}>
+                    {this.props.status || '--'}
+                    {!this.props.userId &&
+                        <p className={styles.tooltipText}>Click to change status</p>
+                    }
+                    
                 </div>
                 :
                 <div>
-                    <StatusForm 
+                    <StatusForm
                         updateStatus={this.updateStatus}
                         currentStatus={this.props.status}/>
                 </div> 
@@ -52,33 +57,6 @@ class ProfileStatus extends React.Component {
             </div>
         )
     }
-}
-
-const StatusForm = (props) => {
-    const updateStatus = (text) => {
-        props.updateStatus(text);
-    }
-
-    return (
-        <Formik
-            initialValues={{newStatusText: props.currentStatus}}
-            onSubmit={(values) => {
-                updateStatus(values.newStatusText);
-            }}>
-            {() => (
-                <Form>
-                    <div>
-                        <Field 
-                            autoFocus={true}  
-                            onBlur={e => {
-                                updateStatus(e.target.value)
-                            }}
-                        type={'textarea'} name={'newStatusText'} placeholder='Enter your status'/>
-                    </div>
-                </Form>
-            )}
-        </Formik>
-    )
 }
 
 export default ProfileStatus;

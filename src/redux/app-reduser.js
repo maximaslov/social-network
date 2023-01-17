@@ -1,9 +1,8 @@
-import {getAuthUserData} from './auth-reduser'
-const INITIALIZED_SUCCES = 'INITIALIZED_SUCCES';
+import { getAuthUserData } from "./auth-reduser";
+const INITIALIZED_SUCCES = "INITIALIZED_SUCCES";
 
 let initialState = {
         initialized: false,
-        redirect: true,
 }
 
 const appReducer = (state = initialState, action) => {
@@ -25,8 +24,4 @@ export const initializeApp = () => (dispatch) => {
         .then(() => dispatch(initializedSucces()));
 }
 
-
-
-
 export default appReducer;
-

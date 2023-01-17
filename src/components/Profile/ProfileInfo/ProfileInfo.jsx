@@ -1,29 +1,34 @@
-import React from 'react';
-import styles from './ProfileInfo.module.css';
-import Preloader from '../../common/Preloader/Preloader';
-import ProfileStatus from './ProfileStatus';
-import { Navigate } from 'react-router-dom';
-import userPhoto from '../../../assets/img/no_photo.png';
+import React from "react";
+import styles from "./ProfileInfo.module.css";
+import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
+import { Navigate } from "react-router-dom";
+import userPhoto from "../../../assets/img/no_photo.png";
 
-export default function ProfileInfo(props) {
-
-    if(!props.profile) {
+const ProfileInfo = ({
+    profile, 
+    status, 
+    updateStatus, 
+    isAuth, 
+    userId}) => {
+    if(!profile) {
         return <Preloader />
     }
 
-    if(!props.isAuth && !props.userId){
+    if(!isAuth && !userId){
         return <Navigate to="/login" replace={true} />
     }
 
         return (
         <div className={styles.descriptionBlock}>
-            {/* <img className={styles.banner} src='https://upload.wikimedia.org/wikivoyage/en/thumb/4/45/NVancouverBanner2.jpg/800px-NVancouverBanner2.jpg' alt="lake with sheaps"/> */}
             <div>
-                <p>{props.profile.fullName}</p>
-                <p>{props.profile.aboutMe}</p>
-                <img src={props.profile.photos.large ? props.profile.photos.large : userPhoto} alt={`${props.userId} user's profile photo`} />
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                <h3>{profile.fullName}</h3>
+                <p>{profile.aboutMe}</p>
+                <img src={profile.photos.large ? profile.photos.large : userPhoto} alt={`${userId} user's profile`} />
+                <ProfileStatus userId={userId} status={status} updateStatus={updateStatus} />
             </div> 
         </div>
     )
 }
+
+export default ProfileInfo;

@@ -1,10 +1,12 @@
-import React from 'react';
-import styles from './Music.module.css';
+import React from "react";
+import styles from "./Music.module.css";
 
-export default function Music() {
+const Music = () => {
     return (
-        <div>
+        <div className={styles.musicContainer}>
              Music
         </div>
     )
 }
+
+export default Music;

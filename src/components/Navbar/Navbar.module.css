@@ -1,17 +1,27 @@
 .nav {
-    grid-area: nav;
-    background-color: rgb(255, 140, 0);
-    padding: 20px;
+  grid-area: nav;
+  background-color: rgb(255, 140, 0);
+  padding: 20px;
 }
 
 .item {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.item:hover {
+  color: rgb(255, 255, 0);
 }
 
 .active {
   color: rgba(0, 0, 0, 0.713);
   text-decoration: none;
 }
+
+@media (max-width: 560px) {
+  .nav {
+    padding: 5px;
+  }
+} 

@@ -1,23 +1,39 @@
-import React from 'react';
-import styles from './Header.module.css';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import styles from "./Header.module.css";
+import { NavLink, useNavigate } from "react-router-dom";
 
-export default function Header(props) {
+export default function Header({isAuth, login, logout}) {
+    const navigate = useNavigate();
+    const navigateToMainPage = () => {
+        navigate('/profile')
+    }
     return (
         <header className={styles.header}>
-            <div className={styles.logoBlock}>
-                <img className={styles.headerLogo} src="https://icon-library.com/images/icon-logo-png/icon-logo-png-11.jpg" alt="logo"></img>
+            <div 
+                onClick={navigateToMainPage}
+                className={styles.logoBlock}>
+                <img
+                className={styles.headerLogo} 
+                src="https://icon-library.com/images/icon-logo-png/icon-logo-png-11.jpg" 
+                alt="logo" 
+            />
                 <h2 className={styles.headerTitle}>Social Network</h2>
             </div>
+
             <div className={styles.authBlock}>
-                { props.isAuth    
+                { isAuth    
                     ?
                     <div className={styles.loginBlock}>
-                        <p>{props.login}</p> 
-                        <button onClick={props.logout}>Log out</button>
+                        <p>{login}</p> 
+                        <button onClick={logout}>Log out</button>
                     </div>
                     : 
-                    <NavLink to="/login">Login</NavLink> }
+                    <NavLink 
+                        className={styles.loginLink}
+                        to="/login"
+                    >
+                        Login
+                    </NavLink> }
             </div>
         </header>
     )

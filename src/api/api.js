@@ -61,5 +61,3 @@ export const securityAPI = {
         return instanse.get(`security/get-captcha-url`);
     }
 }
-
-

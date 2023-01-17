@@ -11,13 +11,20 @@
     background-color: white;
 }
 
+.textareaContiner {
+    width: 100%;
+}
+
 .textarea {
-    max-width: 400px;
     width: 100%;
     height: 4vw;
     min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .textareaError::placeholder {
     color: red;
+    width: 100%;
 }

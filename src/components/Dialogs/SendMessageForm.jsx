@@ -3,12 +3,12 @@ import styles from './Dialogs.module.css';
 import { Formik, useFormik } from "formik";
 import sendMessageValidationSchema from '../../utils/validators/sendMessageValidationSchema';
 
-const SendMessageForm = (props) => {
+const SendMessageForm = ({addNewMessage, }) => {
     const formik = useFormik ({
         initialValues: {newMessageBody: ''},
         onSubmit: () => {
             formik.resetForm();
-            props.addNewMessage(formik.values.newMessageBody);
+            addNewMessage(formik.values.newMessageBody);
         },
         validationSchema: sendMessageValidationSchema,
     })

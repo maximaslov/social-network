@@ -1,7 +1,7 @@
-import {authAPI, securityAPI} from '../api/api';
-const SET_USER_DATA = 'SET_USER_DATA';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const GET_CAPTCHA_URL_SUCCES = 'GET_CAPTCHA_URL_SUCCES';
+import { authAPI, securityAPI } from "../api/api";
+const SET_USER_DATA = "SET_USER_DATA";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+const GET_CAPTCHA_URL_SUCCES = "GET_CAPTCHA_URL_SUCCES";
 
 export let initialState = {
         userId: null,
@@ -51,7 +51,7 @@ export const login = (email, password, rememberMe, captcha, setStatus, setSubmit
             if(res.data.resultCode === 10){
                 dispatch(getCaptchaUrl());
             }
-            setStatus(res.data.messages) 
+            setStatus(res.data.messages)
         };
         setSubmitting(false);
     })
@@ -61,7 +61,6 @@ export const getCaptchaUrl = () => async (dispatch) => {
     const response = await securityAPI.getCaptchaUrl();
     const captchaUrl = response.data.url;
     dispatch(getCaptchaUrlSuccess(captchaUrl));
-
 }
 
 export const logout = () => (dispatch) => {
@@ -69,9 +68,9 @@ export const logout = () => (dispatch) => {
     .then(res => {
         if (res.data.resultCode === 0){
             dispatch(setAuthUserData(null, null, null, false));
+            dispatch(getCaptchaUrlSuccess(null));
         }
     })
 }
 
 export default authReducer;
-

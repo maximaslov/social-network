@@ -1,18 +1,18 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes, useParams, Navigate, Router } from 'react-router-dom';
-import News from './components/News/News';
-import Music from './components/Music/Music';
-import Settings from './components/Settings/Settings';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
-import UsersContainer from './components/Users/UsersContainer';
-import ProfileContainer from './components/Profile/ProfileContainer';
-import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
-import { connect } from 'react-redux';
+import { BrowserRouter, Route, Routes, useParams, Navigate } from "react-router-dom";
+import News from "./components/News/News";
+import Music from "./components/Music/Music";
+import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
+import { connect } from "react-redux";
 import { compose } from "redux";
-import {initializeApp} from './redux/app-reduser'
+import { initializeApp } from "./redux/app-reduser";
 import Preloader from "./components/common/Preloader/Preloader";
 
 function withRouter(Children){
@@ -31,12 +31,12 @@ class App extends React.Component {
     if(!this.props.initialized) {
       
       return (
-        <div className="app-wrapper">
+        <div className="app-wrapper" style={{marginTop: 85}}>
           <Preloader />
         </div>
       )
     }
-
+    
     return (
       <BrowserRouter>
         <div className="app-wrapper">
@@ -44,7 +44,6 @@ class App extends React.Component {
           <Navbar />
           <div className="app-wrapper-content">
             <Routes>
-              {/* {this.props.redirect && <Route path="/" element={ <Navigate to="/profile"/> } /> } */}
               {window.location.pathname === "/" && <Route path="/" element={ <Navigate to="/profile"/> } /> }
               <Route path="/profile" element={<ProfileContainer isMain={true}/>} />
               <Route path="/profile/:userId" element={<ProfileContainer />} />
@@ -65,7 +64,6 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
-  redirect: state.app.redirect,
 })
 
 export default compose(

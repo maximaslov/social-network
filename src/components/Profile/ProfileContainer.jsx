@@ -3,8 +3,6 @@ import Profile from './Profile'
 import { connect } from 'react-redux';
 import { getUserProfile , getStatus, updateStatus} from '../../redux/profile-reducer';
 import { useParams} from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
-
 
 function withRouter(Children){
      return(props)=>{
@@ -19,7 +17,6 @@ class ProfileContainer extends React.Component {
         if(!userId) {
             userId = this.props.authorizedUserId;
             if(!userId) {
-                // <Navigate to="/login" replace={true} />
                 userId = 26923;
             }
         }
