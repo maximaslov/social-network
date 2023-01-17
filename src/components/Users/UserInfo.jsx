@@ -4,8 +4,6 @@ import userPhoto from '../../assets/img/no_photo.png';
 import { NavLink, Navigate } from 'react-router-dom';
 
 export const UserInfo = (props) => {
-
-    console.log(props.userInfo)
     return (
         <div className={style.user} id={props.userInfo.id}>
                         <div className="userInfo">

@@ -9,7 +9,8 @@ let Users = (props) => {
     return (
         <div className={style.usersBlock}>
             { props.isFetching ? <Preloader /> : null }
-            <Paginator {...props} portionSize={window.screen.width >= 1180 ? 10 : 3}/>
+            <Paginator {...props} portionSize={10}/>
+            {/* <Paginator {...props} portionSize={window.screen.width >= 560 ? 10 : 3}/> */}
             {
             props.users.map(e => {
                 return (

@@ -18,5 +18,11 @@
   width: 100%;
 }
 
+@media (max-width: 1180px) {
+  .app-wrapper {
+    grid-template-columns: 1fr 11fr;
+  }
+}
+
 
 
