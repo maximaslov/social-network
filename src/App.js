@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes, useParams, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams, Navigate, HashRouter } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -38,7 +38,7 @@ class App extends React.Component {
     }
     
     return (
-      <BrowserRouter>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <div className="app-wrapper">
           <HeaderContainer />
           <Navbar />
@@ -56,7 +56,7 @@ class App extends React.Component {
             </Routes>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     )
   }
   

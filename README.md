@@ -45,3 +45,7 @@ Instruction
 9. When trying to go to the profile or messages page, if the user is not authorized, he will be redirected to the account login page.
 
 10. The design is adapted to devices with any screen size.
+
+To correctly launch the project on the local server, in the App.js file replace
+"<HashRouter basename={process.env.PUBLIC_URL}></HashRouter>"
+on "<BrowserRouter></BrowserRouter>"
