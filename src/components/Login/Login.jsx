@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 
 const Login = ({login, captchaUrl, isAuth}) => {
     const formik = useFormik({
-        initialValues: {email: "", password: "", rememberMe: false, showPassword: false},
+        initialValues: {email: "free@samuraijs.com ", password: "free", rememberMe: false, showPassword: false},
         onSubmit: () => {
             const {email, password, rememberMe, captcha} = formik.values;
             login(email, password, rememberMe, captcha, formik.setStatus, formik.setSubmitting);
