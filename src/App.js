@@ -38,7 +38,7 @@ class App extends React.Component {
     }
     
     return (
-      <HashRouter basename="/social-network">
+      <HashRouter basename="/">
         <div className="app-wrapper">
           <HeaderContainer />
           <Navbar />
