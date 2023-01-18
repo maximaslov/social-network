@@ -27,4 +27,18 @@
 .textareaError::placeholder {
     color: red;
     width: 100%;
+    height: 4vw;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.textareaError {
+    width: 100%;
+    height: 4vw;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
