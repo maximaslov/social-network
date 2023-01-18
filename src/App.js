@@ -59,7 +59,6 @@ class App extends React.Component {
       </HashRouter>
     )
   }
-  
 }
 
 const mapStateToProps = (state) => ({
