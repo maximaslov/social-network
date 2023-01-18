@@ -41,11 +41,12 @@ color:   white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%
+  max-width: 100%
 }
 
 .loginBlock p {
   color: white;
+  margin-right: 10px;
 }
 
 .loginBlock button {

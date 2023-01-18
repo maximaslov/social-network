@@ -5,7 +5,9 @@ const Message = ({message}) => {
     let messageText = message;
 
     return (
-        <div className={styles.message}>{messageText}</div>
+        <div className={styles.message}>
+            <p>{messageText}</p>
+        </div>
     )
 }
 

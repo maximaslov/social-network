@@ -21,7 +21,7 @@ const ProfileInfo = ({
 
         return (
         <div className={styles.descriptionBlock}>
-            <div>
+            <div className={styles.descriptionContainer}>
                 <h3>{profile.fullName}</h3>
                 <p>{profile.aboutMe}</p>
                 <img src={profile.photos.large ? profile.photos.large : userPhoto} alt={`${userId} user's profile`} />

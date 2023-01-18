@@ -20,6 +20,11 @@
 
 @media (max-width: 1180px) {
   .app-wrapper {
-    grid-template-columns: 1fr 11fr;
+    grid-template-columns:1fr 11fr;
+  }
+}
+@media (max-width: 350px) {
+  .app-wrapper {
+    grid-template-columns:33% auto;
   }
 }
