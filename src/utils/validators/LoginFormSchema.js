@@ -6,7 +6,7 @@ const loginFormSchema = Yup.object().shape({
         .email("Invalid e-mail adres")
         .required("The e-mail field must not be empty"),
     password: Yup.string()
-        .min(8, "")
+        .min(4, "")
         .required(""),
 });
 

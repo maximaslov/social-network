@@ -1,71 +1,47 @@
-# Getting Started with Create React App
+To login:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+email: free@samuraijs.com
+password: free
 
-## Available Scripts
 
-In the project directory, you can run:
+What tools did I use:
 
-### `npm start`
+1. The CSS Grid module was used to mark up the application and its adaptive behavior.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. I used Redux as a state manager.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. React Router DOM was used to track the URL string and render the components accordingly
 
-### `npm test`
+4. UseFormik() hook from Formik was used to create forms.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. To create container components (higher-order) that are connected to the Redux store, the connect function from the React-Redux package was used.
 
-### `npm run build`
+6. The Yup library was used for form validation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+7. The Axios library was used to interact with the server.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+8. Also used hooks useState, useEffect, useNavigate.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Instruction
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. You can log in to the site using your username and password. All components are authenticated, data availability is checked, data is entered in the "email" field with a valid address, and a set of characters, and the correctness of the entered data is checked.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. If the same user logs in and logs out 10 times in a row, the server will ask for a captcha, which I also processed.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. After logging in, the user has the opportunity to open the message section.
 
-## Learn More
+4. It is possible to view a list of all registered users.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. At each stage, you can subscribe or unsubscribe from him, provided that the login is made in the account.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. You can go to the profile of each user.
 
-### Code Splitting
+7. You can change the status on your profile page. To do this, just click once on the status with the mouse, make changes to it, then click anywhere with the mouse, or press "Enter" on the keyboard.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+8. You can add new posts on your profile page. The text input field also contains validation for the minimum and maximum number of characters. (Only works locally. Data will be lost after the page reload).
 
-### Analyzing the Bundle Size
+9. When trying to go to the profile or messages page, if the user is not authorized, he will be redirected to the account login page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# social-network
+10. The design is adapted to devices with any screen size.
