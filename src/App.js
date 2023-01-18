@@ -44,7 +44,8 @@ class App extends React.Component {
           <Navbar />
           <div className="app-wrapper-content">
             <Routes>
-              {window.location.pathname === "/social-network" && <Route path="/" element={ <Navigate to="/profile"/> } /> }
+              {this.props.redirect && <Route path="/" element={ <Navigate to="/profile"/> } /> }
+              {window.location.pathname === "/" && <Route path="/" element={ <Navigate to="/profile"/> } /> }
               <Route path="/profile" element={<ProfileContainer isMain={true}/>} />
               <Route path="/profile/:userId" element={<ProfileContainer />} />
               <Route path="/dialogs/*" element={<DialogsContainer />}/>
@@ -63,6 +64,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
+  redirect: state.app.redirect,
 })
 
 export default compose(

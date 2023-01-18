@@ -60,3 +60,9 @@ color:   white;
 .loginLink:hover {
   color: rgb(255, 140, 0);
 }
+
+@media (max-width: 560px) {
+  .header {
+    padding: 5px;
+  }
+} 
