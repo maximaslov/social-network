@@ -10,9 +10,9 @@ password: free
 <br/>
 ## Briefly about the functionality:
 <br/>
-1.  It is possible to log in to the site using a login and password. Validation occurs at all levels, starting with checking whether the data entered in the "email" field is a valid email address and ending with checking the correctness of the entered data.
-2.  If the same user logs in and out of the account 10 times in a row, the server will request the entry of a captcha, which I also processed.
-3.  After logging in, the user can access the message section.
+1.  It is possible to log in to the site using a login and password. Validation occurs at all levels, starting with checking whether the data entered in the "email" field is a valid email address and ending with checking the correctness of the entered data.<br/>
+2.  If the same user logs in and out of the account 10 times in a row, the server will request the entry of a captcha, which I also processed.<br/>
+3.  After logging in, the user can access the message section.<br/>
 4.  It is possible to view a list of all registered users.
 5.  Each member can be subscribed or unsubscribed from, provided they have logged into their account.
 6.  It is possible to go to the profile page of each user.
