@@ -1,13 +1,13 @@
-#Social Network
+# Social Network
 
 A social network is a demonstration single-page application with limited functionality and an amateur design. The main goal of creating this application is to showcase my skills in working with modern technologies and class components.
 
-##To login:
+## To login:
 
 email: free@samuraijs.com
 password: free
 ***
-##Briefly about the functionality:
+## Briefly about the functionality:
 ***
 1. It is possible to log in to the site using a login and password. Validation occurs at all levels, starting with checking whether the data entered in the "email" field is a valid email address and ending with checking the correctness of the entered data.
 2. If the same user logs in and out of the account 10 times in a row, the server will request the entry of a captcha, which I also processed.
@@ -21,7 +21,7 @@ password: free
 10. If the user does not have a profile photo, a placeholder image with a human silhouette is displayed.
 11. The design is adapted to devices with screens of any size.
 ***
-##Tools used:
+## Tools used:
 ***
 * The CSS Grid module was used for program layout and adaptive behavior.
 * Redux was used as the state manager.
