@@ -32,5 +32,5 @@ password: free
 * The Axios package was used to send requests to the server.
 <br/>
 >To correctly launch the project on the local server, in the App.js file replace
-`"<HashRouter basename={process.env.PUBLIC_URL}></HashRouter>"
-on "<BrowserRouter></BrowserRouter>"`
+``` "<HashRouter basename={process.env.PUBLIC_URL}></HashRouter>"
+on "<BrowserRouter></BrowserRouter>" ```
