@@ -31,7 +31,3 @@ password: free
 * The connect function from the React-Redux package was used to create container components that are connected to the Redux store.<br/>
 * The Axios package was used to send requests to the server.
 <br/>
-> To correctly launch the project on the local server, in the App.js file replace
-> `<HashRouter basename={process.env.PUBLIC_URL}></HashRouter>`
-> on 
-> `<BrowserRouter></BrowserRouter>`
