@@ -21,9 +21,9 @@ password: free
 9.  When trying to access the profile or message page, if the user is not authorized, they will be redirected to the login page.<br/>
 10.  If the user does not have a profile photo, a placeholder image with a human silhouette is displayed.<br/>
 11.  The design is adapted to devices with screens of any size.<br/>
-<br/>
+
 ## Tools used:
-<br/>
+
 * The CSS Grid module was used for program layout and adaptive behavior.<br/>
 * Redux was used as the state manager.<br/>
 * React Router DOM was used to track the URL and display components accordingly.<br/>
@@ -32,5 +32,5 @@ password: free
 * The Axios package was used to send requests to the server.
 <br/>
 >To correctly launch the project on the local server, in the App.js file replace
-``` <HashRouter basename={process.env.PUBLIC_URL}></HashRouter>
-on <BrowserRouter></BrowserRouter> ```
+`<HashRouter basename={process.env.PUBLIC_URL}></HashRouter>`
+on `<BrowserRouter></BrowserRouter>`
