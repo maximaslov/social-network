@@ -5,6 +5,7 @@ A social network is a demonstration single-page application with limited functio
 ## To login:
 
 email: free@samuraijs.com
+***
 password: free
 ***
 ## Briefly about the functionality:
